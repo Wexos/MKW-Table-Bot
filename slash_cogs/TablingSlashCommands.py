@@ -234,6 +234,21 @@ class Table_Slash(ext_commands.Cog):
         args = [command] + order.split()
 
         await self.bot.process_message_commands(message, args, this_bot, prefix, is_lounge, from_slash=True)
+    
+    @slash_command(name="quickedit",
+    description="Change the placement of a player in a race",
+    guild_ids=common.SLASH_GUILDS)
+    async def _quick_edit(
+        self,
+        ctx: discord.ApplicationContext,
+        player: Option(str, 'Player number (run /ap) or Lounge name'),
+        race: Option(int, "Race number"),
+        placement: Option(int, "New placement of the player")
+    ):
+        command, message, this_bot, prefix, is_lounge = await self.bot.slash_interaction_pre_invoke(ctx)
+        args = [command, player, str(race), str(placement)]
+
+        await self.bot.process_message_commands(message, args, this_bot, prefix, is_lounge, from_slash=True)
 
 
     @slash_command(name="mergeroom",
