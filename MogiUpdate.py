@@ -566,6 +566,8 @@ async def textInputUpdate(tableText:str, tier:str, races_played=12, warFormat=No
     
     if tier == "squadqueue":
         tier = "Squad Queue"
+    elif tier == "alldiv":
+        tier = "All Div"
     else:
         tier = "Tier " + tier
         

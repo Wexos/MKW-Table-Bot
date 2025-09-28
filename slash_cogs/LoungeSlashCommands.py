@@ -165,6 +165,7 @@ class LoungeSlash(ext_commands.Cog):
             OptionChoice('T5', '5'), 
             OptionChoice('T6', '6'), 
             OptionChoice('T7', '7'), 
+            OptionChoice('all-div', 'alldiv'),
             'squadqueue'
         ]),
         races_played: Option(int, "Number of races played in event"),
